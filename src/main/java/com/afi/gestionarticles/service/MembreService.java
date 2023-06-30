@@ -84,7 +84,4 @@ public class MembreService implements MembreInterface {
 		return mr.findByLoginAndPassword(login, password);
 	}
 	
-	
-	
-	
 }
