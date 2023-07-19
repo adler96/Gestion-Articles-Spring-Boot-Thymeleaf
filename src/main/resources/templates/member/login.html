@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\node_modules\bootstrap\dist\css\bootstrap.min.css">
+    <title>Application de Gestion d'Articles - Accueil</title>
+</head>
+<body>
+    <div>
+        <form method="get" th:action="@{/member/testLogin}">
+            <div class="mb-3">
+              <label for="login" class="form-label">Login:</label>
+              <input type="text" name="login" class="form-control" id="login" aria-describedby="emailHelp" required>
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password:</label>
+              <input type="password" name="password" class="form-control" id="password" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Connexion</button>
+          </form>
+    </div>
+    <script src="..\node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
+</body>
+</html>

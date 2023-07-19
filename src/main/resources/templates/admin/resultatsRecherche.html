@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\node_modules\bootstrap\dist\css\bootstrap.min.css">
+    <title>Application de Gestion d'Articles - Accueil</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Espace Administrateur</h1>
+        <h3>Resultats de la recherche pour: "<strong th:text="${member.nom}"></strong>"</h3>
+
+        <div class="">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Prenom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Login</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                  
+                <tbody>
+                  
+                  <tr th:each="member:${results}">
+                    <td scope="row" th:text="${member.id}"></td>
+                    <td th:text="${member.prenom}"></td>
+                    <td th:text="${member.nom}"></td>
+                    <td th:text="${member.login}"></td>
+                    <td>
+                      <a th:href="@{/admin/searchbyid/{id}(id=${member.id})}">Afficher</a>
+                      <a th:href="@{/admin/editmember/{id}(id=${member.id})}">Modifier</a>
+                      <a th:href="@{/admin/deletemember/{id}(id=${member.id})}">Supprimer</a>
+                    </td>
+                  </tr>
+      
+                </tbody>
+                
+            </table>
+        </div>
+        <div class="my-4">
+            <a class="btn btn-secondary " th:href="@{/admin/home}">Retourner a la liste</a>
+        </div>
+    </div>
+    <script src="..\node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
+</body>
+</html>

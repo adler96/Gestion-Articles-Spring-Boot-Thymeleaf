@@ -20,14 +20,18 @@ public class AdministrateurService implements AdministrateurInterface {
 	
 	@Autowired
 	MembreRepository mr;
+	
+	@Autowired
 	AdministrateurRepository ar;
 
 	@Override
 	public void ajouterMembre(Membre mbre) {
 		// TODO Auto-generated method stub
 		if(mbre.getId() == 0) {
+			System.out.println("Id="+mbre.getId());
 			mr.save(mbre);
 		} else {
+			System.out.println("Id="+mbre.getId());
 			Membre updateMbre = mr.findById(mbre.getId()).get();
 			updateMbre.setPrenom(mbre.getPrenom());
 			updateMbre.setNom(mbre.getNom());

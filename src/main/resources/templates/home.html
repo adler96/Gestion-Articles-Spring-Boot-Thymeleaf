@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules\bootstrap\dist\css\bootstrap.min.css">
+    <title>Application de Gestion d'Articles - Accueil</title>
+</head>
+<body>
+    <h1>Gestion d'Articles</h1>
+    <h3>Choisir votre profil</h3>
+
+    <div>
+        <div class="card">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Zone Administrateur</h5>
+              <p class="card-text">Cliquez pour acceder a l'interface de connexion administrateur.</p>
+              <a th:href="@{/admin/login}" class="btn btn-primary">Se connecter</a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Zone Membre</h5>
+              <p class="card-text">Cliquez ici pour acceder a la page de connexion des membres.</p>
+              <a th:href="@{/member/login}" class="btn btn-primary">Se connecter</a>
+            </div>
+         </div>
+    </div>
+    <script src="node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
+</body>
+</html>

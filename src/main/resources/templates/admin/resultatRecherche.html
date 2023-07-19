@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\node_modules\bootstrap\dist\css\bootstrap.min.css">
+    <title>Application de Gestion d'Articles - Accueil</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Espace Administrateur</h1>
+        <h3>Profil membre</h3>
+
+        <div class="">
+            <ul class="list-group">
+                <li class="list-group-item"><strong>Prenom:</strong><span th:text="${member.prenom}"></span></li>
+                <li class="list-group-item"><strong>Nom:</strong><span th:text="${member.nom}"></span></li>
+                <li class="list-group-item"><strong>Login:</strong><span th:text="${member.login}"></span></li>
+            </ul>
+        </div>
+        <div class="my-4">
+            <a class="btn btn-secondary " th:href="@{/admin/home}">Retourner a la liste</a>
+        </div>
+    </div>
+    <script src="..\node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
+</body>
+</html>

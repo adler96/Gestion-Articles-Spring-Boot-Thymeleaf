@@ -20,6 +20,8 @@ public class MembreService implements MembreInterface {
 
 	@Autowired
 	ArticleRepository ar;
+	
+	@Autowired
 	MembreRepository mr;
 
 	@Override

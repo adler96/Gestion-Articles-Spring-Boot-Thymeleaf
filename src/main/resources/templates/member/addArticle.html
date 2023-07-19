@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\node_modules\bootstrap\dist\css\bootstrap.min.css">
+    <title>Application de Gestion d'Articles - Accueil</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Espace Membre</h1>
+        <h3>Formulaire d'ajout d'Article</h3>
+
+        <div class="">
+            <form method="post" th:action="@{/member/addarticle/save}" th:object="${article}">
+                <div class="mb-3">
+                    <label for="libelle" class="form-label">Libelle:</label>
+                    <input type="text" class="form-control" id="libelle" th:field="*{libelle}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="categorie" class="form-label">Categorie:</label>
+                    <input type="text" class="form-control" th:field="*{categorie}" id="categorie" required>
+                </div>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description:</label>
+                    <textarea class="form-control" th:field="*{description}" id="description" cols="30" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+            </form>
+        </div>
+
+        <div class="my-4">
+            <a class="btn btn-secondary " th:href="@{/member/home}">Retourner a la liste</a>
+        </div>
+        
+    </div>
+    
+    <script src="..\node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\node_modules\bootstrap\dist\css\bootstrap.min.css">
+    <title>Application de Gestion d'Articles - Accueil</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Espace Membre</h1>
+        <h3>Resultats de la recherche pour: "<strong th:text="${article.libelle}"></strong>"</h3>
+
+        <div class="">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Libelle</th>
+                    <th scope="col">Categorie</th>
+                    <th scope="col">Actions</th>
+                  </tr>
+                </thead>
+                  
+                <tbody>
+                  
+                  <tr th:each="article:${results}">
+                    <td scope="row" th:text="${article.id}"></td>
+                    <td th:text="${article.libelle}"></td>
+                    <td th:text="${article.categorie}"></td>
+                    <td>
+                      <a th:href="@{/member/searchbyid/{id}(id=${article.id})}">Afficher</a>
+                      <a th:href="@{/member/editarticle/{id}(id=${article.id})}">Modifier</a>
+                      <a th:href="@{/member/deletearticle/{id}(id=${article.id})}">Supprimer</a>
+                    </td>
+                  </tr>
+      
+                </tbody>
+                
+            </table>
+        </div>
+        <div class="my-4">
+            <a class="btn btn-secondary " th:href="@{/member/home}">Retourner a la liste</a>
+        </div>
+    </div>
+    <script src="..\node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
+</body>
+</html>

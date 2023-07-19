@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\node_modules\bootstrap\dist\css\bootstrap.min.css">
+    <title>Application de Gestion d'Articles - Accueil</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Espace Membre</h1>
+
+        <div class="my-4">
+          <form th:action="@{/member/searchbylibelle/lib}" method="get">
+            <div class="mb-3">
+              <label for="libelle" class="form-label">Libelle:</label>
+              <input type="text" name="libelle" class="form-control" id="libelle" aria-describedby="emailHelp">                    
+            </div>
+            <input class="btn btn-primary" type="submit" value="Rechercher">
+          </form>
+        </div>
+        
+        <div class="">
+          <a class="btn btn-success" th:href="@{/member/addarticle}">Ajouter un article</a>
+        </div>
+        
+        <h3>Liste des Articles</h3>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Libelle</th>
+              <th scope="col">Categorie</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+            
+          <tbody>
+            
+            <tr th:each="article:${allArticles}">
+              <td scope="row" th:text="${article.id}"></td>
+              <td th:text="${article.libelle}"></td>
+              <td th:text="${article.categorie}"></td>
+              <td>
+                <a th:href="@{/member/searchbyid/{id}(id=${article.id})}">Afficher</a>
+                <a th:href="@{/member/editarticle/{id}(id=${article.id})}">Modifier</a>
+                <a th:href="@{/member/deletearticle/{id}(id=${article.id})}">Supprimer</a>
+              </td>
+            </tr>
+
+          </tbody>
+          
+        </table>
+
+    </div>
+    <script src="..\node_modules\bootstrap\dist\js\bootstrap.bundle.min.js"></script>
+</body>
+</html>
